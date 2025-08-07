@@ -1,0 +1,184 @@
+<!-- catalog.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krushi Mart | Affordable Water Motors for Farmers</title>
+
+    <!-- ✅ SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Krushi Mart offers best quality water motors and pumps at affordable prices for farmers and households."
+    />
+    <meta
+      name="keywords"
+      content="Water Pump, Krushi Mart, Agriculture, Submersible Pump, Water Motor, Farming Tools, Farmer, Irrigation"
+    />
+    <meta name="author" content="Krushi Mart Team" />
+
+    <!-- ✅ Social Sharing (Open Graph) -->
+    <meta
+      property="og:title"
+      content="Krushi Mart - Trusted Water Motors Store"
+    />
+    <meta
+      property="og:description"
+      content="Explore top-quality motors and pumps at Krushi Mart – serving farmers with trust."
+    />
+    <meta property="og:image" content="images/krushi-og.jpg" />
+    <meta property="og:url" content="https://krushimart.in/" />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css\catalog.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar-logo">
+        <img src="images\krushilogo.png" alt="Krushi Mart" />
+      </div>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">☰</label>
+      <nav class="navbar-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="catalog.html" class="nav-link">Motors</a>
+        <a href="cart.html" class="nav-link">Cart 🛒</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+        <a href="auth.html" class="nav-link" id="authLink">Login</a>
+        <span id="userGreeting" class="user-greeting"></span>
+      </nav>
+    </header>
+
+    <main>
+      <section class="catalog-filters">
+        <input type="text" id="searchInput" placeholder="Search motors..." />
+
+        <select id="brandFilter">
+          <option value="">All Brands</option>
+          <option value="Crompton">Crompton</option>
+          <option value="V-Guard">V-Guard</option>
+          <option value="Kirloskar">Kirloskar</option>
+          <option value="Texmo">Texmo</option>
+          <option value="Havells">Havells</option>
+          <option value="CRI">CRI</option>
+        </select>
+
+        <select id="priceFilter">
+          <option value="">All Prices</option>
+          <option value="below-4500">Below ₹4500</option>
+          <option value="4500-5000">₹4500 - ₹5000</option>
+          <option value="above-5000">Above ₹5000</option>
+        </select>
+      </section>
+
+      <section class="category-section">
+        <h2>🛠️ Motor Categories</h2>
+        <ul class="tree">
+          <li>
+            Categories
+            <ul>
+              <li>
+                Thrust Bearing
+                <ul>
+                  <li>
+                    <a href="category/thrust-bearing/carbon-bearing.html"
+                      >Carbon Bearing</a
+                    >
+                  </li>
+                  <li>
+                    <a href="category/thrust-bearing/fiber-bearing.html"
+                      >Fiber Bearing</a
+                    >
+                  </li>
+                  <li>
+                    <a href="category/thrust-bearing/carbide.html">Carbide</a>
+                  </li>
+                  <li>
+                    <a href="category/thrust-bearing/super-teflon.html"
+                      >Super Teflon</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Bush
+                <ul>
+                  <li>
+                    <a href="category/bush/carbon-bush.html">Carbon Bush</a>
+                  </li>
+                  <li>
+                    <a href="category/bush/metal-bush.html">Metal Bush</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Rubber Products
+                <ul>
+                  <li>
+                    <a href="category/rubber-products/oil-seal.html"
+                      >Oil Seal</a
+                    >
+                  </li>
+                  <li>
+                    <a href="category/rubber-products/neckring.html"
+                      >Neckring</a
+                    >
+                  </li>
+                  <li>
+                    <a href="category/rubber-products/grommet.html">Grommet</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Impeller Products
+                <ul>
+                  <li><a href="category/impeller/v4.html">V4</a></li>
+                  <li><a href="category/impeller/v6.html">V6</a></li>
+                  <li><a href="category/impeller/old.html">Old</a></li>
+                </ul>
+              </li>
+              <li>
+                Wooden Stick
+                <ul>
+                  <li><a href="category/wooden-stick/v4.html">V4</a></li>
+                  <li><a href="category/wooden-stick/v6.html">V6</a></li>
+                  <li><a href="category/wooden-stick/v8.html">V8</a></li>
+                  <li><a href="category/wooden-stick/v9.html">V9</a></li>
+                </ul>
+              </li>
+              <li>
+                Hardware
+                <ul>
+                  <li>
+                    <a href="category/hardware/ss-stud-nuts.html"
+                      >SS Stud & Nuts</a
+                    >
+                  </li>
+                  <li>
+                    <a href="category/hardware/ms-stud-nuts.html"
+                      >M S Stud & Nuts</a
+                    >
+                  </li>
+                  <li><a href="category/hardware/bolt.html">Bolt</a></li>
+                  <li><a href="category/hardware/washer.html">Washer</a></li>
+                  <li><a href="category/hardware/lock.html">Lock</a></li>
+                  <li><a href="category/hardware/key.html">Key</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <div id="product-list" class="product-grid"></div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Krushi Mart. All rights reserved.</p>
+    </footer>
+
+    <!-- ✅ Important: defer ensures DOM loads before script runs -->
+    <script src="js/catalog.js" defer></script>
+    <script src="js/ActiveNav.js" defer></script>
+  </body>
+</html>

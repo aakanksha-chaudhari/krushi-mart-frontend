@@ -1,0 +1,66 @@
+<!-- orders.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krushi Mart | Affordable Water Motors for Farmers</title>
+
+    <!-- ✅ SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Krushi Mart offers best quality water motors and pumps at affordable prices for farmers and households."
+    />
+    <meta
+      name="keywords"
+      content="Water Pump, Krushi Mart, Agriculture, Submersible Pump, Water Motor, Farming Tools, Farmer, Irrigation"
+    />
+    <meta name="author" content="Krushi Mart Team" />
+
+    <!-- ✅ Social Sharing (Open Graph) -->
+    <meta
+      property="og:title"
+      content="Krushi Mart - Trusted Water Motors Store"
+    />
+    <meta
+      property="og:description"
+      content="Explore top-quality motors and pumps at Krushi Mart – serving farmers with trust."
+    />
+    <meta property="og:image" content="images/krushi-og.jpg" />
+    <meta property="og:url" content="https://krushimart.in/" />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar-logo">
+        <img src="images\krushilogo.png" alt="Krushi Mart" />
+      </div>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">☰</label>
+      <nav class="navbar-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="catalog.html" class="nav-link">Motors</a>
+        <a href="cart.html" class="nav-link">Cart 🛒</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+        <a href="auth.html" class="nav-link" id="authLink">Login</a>
+        <span id="userGreeting" class="user-greeting"></span>
+      </nav>
+    </header>
+
+    <main>
+      <section class="orders-section">
+        <h2>Your Past Orders</h2>
+        <div id="orderList"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Krushi Mart. All rights reserved.</p>
+    </footer>
+
+    <script src="js/orders.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/ActiveNav.js" defer></script>
+  </body>
+</html>

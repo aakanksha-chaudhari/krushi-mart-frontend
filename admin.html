@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel | Krushi Mart</title>
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <header class="admin-header">
+      <h1>🛠 Admin Dashboard - Krushi Mart</h1>
+    </header>
+
+    <main class="admin-main">
+      <!-- ✅ Product Form -->
+      <section class="form-section">
+        <h2>Add New Product</h2>
+        <form id="productForm">
+          <input type="text" id="name" placeholder="Product Name" required />
+          <input type="text" id="brand" placeholder="Brand" required />
+          <input type="number" id="price" placeholder="Price (₹)" required />
+          <input
+            type="text"
+            id="description"
+            placeholder="Description"
+            required
+          />
+
+          <!-- ✅ Image URL -->
+          <input type="text" id="imageUrl" placeholder="Image URL" required />
+
+          <!-- ✅ Category Dropdown -->
+          <select id="category" required>
+            <option value="">-- Select Category --</option>
+            <option value="Thrust Bearing">Thrust Bearing</option>
+            <option value="Bush">Bush</option>
+            <option value="Rubber Products">Rubber Products</option>
+            <option value="Impeller">Impeller</option>
+            <option value="Wooden Stick">Wooden Stick</option>
+            <option value="Hardware">Hardware</option>
+          </select>
+
+          <!-- ✅ Subcategory Dropdown -->
+          <select id="subcategory" required>
+            <option value="">-- Select Subcategory --</option>
+          </select>
+
+          <button type="submit">➕ Add Product</button>
+        </form>
+      </section>
+
+      <!-- ✅ Product List -->
+      <section class="product-section">
+        <h2>🗂 Product List</h2>
+        <div id="productContainer" class="product-container"></div>
+      </section>
+    </main>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>

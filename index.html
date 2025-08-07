@@ -1,0 +1,153 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Krushi Mart | Affordable Water Motors for Farmers</title>
+
+    <!-- ✅ SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Krushi Mart offers best quality water motors and pumps at affordable prices for farmers and households."
+    />
+    <meta
+      name="keywords"
+      content="Water Pump, Krushi Mart, Agriculture, Submersible Pump, Water Motor, Farming Tools, Farmer, Irrigation"
+    />
+    <meta name="author" content="Krushi Mart Team" />
+
+    <!-- ✅ Social Sharing (Open Graph) -->
+    <meta
+      property="og:title"
+      content="Krushi Mart - Trusted Water Motors Store"
+    />
+    <meta
+      property="og:description"
+      content="Explore top-quality motors and pumps at Krushi Mart – serving farmers with trust."
+    />
+    <meta property="og:image" content="images/krushi-og.jpg" />
+    <meta property="og:url" content="https://krushimart.in/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/home-banner.jpg" />
+
+    <!-- ✅ Favicon -->
+    <link rel="icon" href="images/krushilogo.png" type="image/png" />
+
+    <!-- ✅ CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="navbar-logo">
+        <img src="images/krushilogo.png" alt="Krushi Mart" />
+      </div>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">☰</label>
+      <nav class="navbar-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="catalog.html" class="nav-link">Motors</a>
+        <a href="cart.html" class="nav-link">Cart 🛒</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+        <a href="auth.html" class="nav-link" id="authLink">Login</a>
+        <span id="userGreeting" class="user-greeting"></span>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-image-banner">
+        <img
+          src="images/home-banner.jpg"
+          alt="Farmer using water motor"
+          class="hero-banner-img"
+        />
+        <div class="hero-banner-text">
+          <h2>Empowering Farmers with Reliable Water Motors</h2>
+          <p>Shop trusted motor brands that power your fields with care.</p>
+          <a href="catalog.html" class="btn">Explore Motors</a>
+        </div>
+      </section>
+
+      <!-- Featured Motors -->
+      <section class="featured">
+        <h3>Featured Motors</h3>
+        <div class="product-grid" id="featured-products">
+          <!-- JS inserts product cards here -->
+        </div>
+      </section>
+
+      <!-- Why Choose Us -->
+      <section class="info-section">
+        <h2>Why Choose Krushi Mart?</h2>
+        <div class="info-grid">
+          <div class="info-card">✅ Trusted Water Motor Brands</div>
+          <div class="info-card">🚚 Fast & Reliable Delivery</div>
+          <div class="info-card">💰 Best Market Prices</div>
+          <div class="info-card">🔧 Long-Term Durability</div>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section class="info-section">
+        <h2>How It Works</h2>
+        <div class="info-grid">
+          <div class="info-card">🛒 Add Products to Cart</div>
+          <div class="info-card">🔐 Login & Place Order</div>
+          <div class="info-card">📦 Get Doorstep Delivery</div>
+        </div>
+      </section>
+
+      <!-- Customer Testimonials -->
+      <section class="info-section testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <p>“Excellent motor quality and fast service. Will buy again!”</p>
+            <strong>– Ravi Patil</strong>
+          </div>
+          <div class="testimonial-card">
+            <p>“Great customer support and affordable rates. 5 stars!”</p>
+            <strong>– Snehal More</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Us Section -->
+      <section class="contact-us">
+        <h3>📞 Contact Us</h3>
+        <p>Have questions or need assistance? Reach out to us!</p>
+
+        <div class="contact-info-box">
+          <p><strong>Customer Support:</strong></p>
+          <p>📱 +91 1234567899</p>
+          <p>📱 +91 9123456780</p>
+          <p>📧 support@krushimart.com</p>
+        </div>
+
+        <form id="contactForm">
+          <label for="name">Name:</label>
+          <input type="text" id="contactName" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="contactEmail" required />
+
+          <label for="message">Message:</label>
+          <textarea id="contactMessage" rows="4" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+
+        <p id="contactSuccess" style="color: green; margin-top: 1rem"></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Krushi Mart. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/ActiveNav.js" defer></script>
+  </body>
+</html>

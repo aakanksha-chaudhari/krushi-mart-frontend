@@ -1,0 +1,58 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krushi Mart | Your Cart</title>
+
+    <meta
+      name="description"
+      content="View items added to your Krushi Mart cart and proceed to place orders."
+    />
+    <meta
+      name="keywords"
+      content="Krushi Mart, cart, order water pump, irrigation tools"
+    />
+    <meta name="author" content="Krushi Mart Team" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar-logo">
+        <img src="images/krushilogo.png" alt="Krushi Mart" />
+      </div>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">☰</label>
+      <nav class="navbar-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="catalog.html" class="nav-link">Motors</a>
+        <a href="cart.html" class="nav-link active">Cart 🛒</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+        <a href="auth.html" class="nav-link" id="authLink">Login</a>
+        <span id="userGreeting" class="user-greeting"></span>
+      </nav>
+    </header>
+
+    <main class="cart-section">
+      <h2>🛒 Your Cart</h2>
+      <div id="cart-items" class="cart-items-grid"></div>
+      <div class="cart-summary">
+        <h3 id="cart-total">Total: ₹0</h3>
+        <button onclick="placeOrder()" class="btn checkout-btn">
+          Place Order
+        </button>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Krushi Mart. All rights reserved.</p>
+    </footer>
+
+    <!-- ✅ FIX: Move scripts to bottom + no defer -->
+    <script src="js/cart.js"></script>
+    <script src="js/authGuard.js" defer></script>
+    <script src="js/ActiveNav.js" defer></script>
+  </body>
+</html>
