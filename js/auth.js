@@ -1,4 +1,4 @@
-console.log("✅ auth.js loaded");
+console.log(" auth.js loaded");
 
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
@@ -19,7 +19,7 @@ loginForm.addEventListener("submit", function (e) {
     .then((res) => res.json())
     .then((data) => {
       if (data.success) {
-        alert("✅ Login successful!");
+        alert(" Login successful!");
       window.location.href = "admin.html"; 
 
       } else {

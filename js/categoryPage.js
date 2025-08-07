@@ -1,4 +1,4 @@
-// ✅ categoryPage.js
+//  categoryPage.js
 
 document.addEventListener("DOMContentLoaded", () => {
   const productList = document.getElementById("productList");

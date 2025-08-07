@@ -1,12 +1,12 @@
-console.log("✅ cart.js is running");
+console.log(" cart.js is running");
 
-// ✅ STEP 2: Wait for full DOM to load
+//  STEP 2: Wait for full DOM to load
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("✅ DOM fully loaded, now loading cart...");
+  console.log(" DOM fully loaded, now loading cart...");
   loadCart();
 });
 
-// ✅ STEP 3: Confirm DOM and show cart items
+//  STEP 3: Confirm DOM and show cart items
 function loadCart() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const cartContainer = document.getElementById("cart-items");
@@ -87,6 +87,6 @@ function placeOrder() {
   localStorage.setItem("orders", JSON.stringify(allOrders));
   localStorage.removeItem("cart");
 
-  alert("✅ Order placed successfully!");
+  alert(" Order placed successfully!");
   window.location.href = "orders.html";
 }

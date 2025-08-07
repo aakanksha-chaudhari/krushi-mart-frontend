@@ -1,5 +1,5 @@
 // js/script.js
-console.log("✅ script.js is running");
+console.log(" script.js is running");
 
 const products = [
   {

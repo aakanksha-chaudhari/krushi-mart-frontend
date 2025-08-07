@@ -1,4 +1,4 @@
-// adminLogin.js ✅
+// adminLogin.js 
 function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -11,7 +11,7 @@ function login() {
     .then((res) => res.json())
     .then((data) => {
       if (data.success) {
-        alert("✅ Login successful!");
+        alert(" Login successful!");
         window.location.href = "frontend\admin.html"; // your dashboard page
       } else {
         alert("❌ Invalid credentials");

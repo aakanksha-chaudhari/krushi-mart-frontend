@@ -1,4 +1,4 @@
-console.log("✅ admin.js loaded");
+console.log(" admin.js loaded");
 
 // DOM Elements
 const nameInput = document.getElementById("name");
@@ -10,7 +10,7 @@ const categorySelect = document.getElementById("category");
 const subcategorySelect = document.getElementById("subcategory");
 const productContainer = document.getElementById("productContainer");
 
-// ✅ Category → Subcategory Mapping
+// Category → Subcategory Mapping
 const subcategoryMap = {
   "Thrust Bearing": ["Carbon Bearing", "Fiber Bearing", "Super Teflon", "Carbide"],
   "Bush": ["Carbon Bush", "Metal Bush"],
@@ -20,7 +20,7 @@ const subcategoryMap = {
   "Hardware": ["SS Stud & Nuts", "MS Stud & Nuts", "Bolt", "Washer", "Lock", "Key"]
 };
 
-// ✅ Populate subcategories based on category
+//  Populate subcategories based on category
 categorySelect.addEventListener("change", () => {
   const selectedCategory = categorySelect.value;
   const options = subcategoryMap[selectedCategory] || [];
@@ -36,7 +36,7 @@ categorySelect.addEventListener("change", () => {
   console.log("📦 Subcategories loaded:", options);
 });
 
-// ✅ Fetch all products and display
+//  Fetch all products and display
 function fetchProducts() {
   fetch("http://localhost:5000/api/products")
     .then(res => res.json())
@@ -62,7 +62,7 @@ function fetchProducts() {
     });
 }
 
-// ✅ Add product
+//  Add product
 function addProduct(event) {
   event.preventDefault();
 
@@ -91,7 +91,7 @@ function addProduct(event) {
   })
     .then(res => res.json())
     .then(data => {
-      alert("✅ Product added successfully!");
+      alert(" Product added successfully!");
       nameInput.value = "";
       brandInput.value = "";
       priceInput.value = "";
@@ -107,7 +107,7 @@ function addProduct(event) {
     });
 }
 
-// ✅ Delete product
+//  Delete product
 function deleteProduct(id) {
   fetch(`http://localhost:5000/api/products/${id}`, {
     method: "DELETE"
@@ -118,6 +118,6 @@ function deleteProduct(id) {
     });
 }
 
-// ✅ Initialize
+//  Initialize
 document.getElementById("productForm").addEventListener("submit", addProduct);
 fetchProducts();
