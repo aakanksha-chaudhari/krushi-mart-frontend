@@ -3,26 +3,29 @@ console.log("✅ catalog.js loaded");
 const productList = document.getElementById("product-list");
 
 function loadMotors() {
-  fetch(`${API_BASE}/api/products`) // or your hosted backend API 
+  fetch(`${API_BASE}/api/products`) // your backend API
     .then(response => response.json())
     .then(motors => {
       productList.innerHTML = "";
-
 
       if (motors.length === 0) {
         productList.innerHTML = "<p>No products found.</p>";
         return;
       }
 
-      motors.forEach((motor, index) => {
+      motors.forEach(motor => {
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
 
+        const subcatParam = encodeURIComponent(motor.subcategory || "");
+
         productCard.innerHTML = `
-          <div onclick='viewProduct(${JSON.stringify(motor)})' style="cursor: pointer;">
-            <img src="${motor.image}" alt="${motor.name}">
-            <h3>${motor.name}</h3>
-          </div>
+          <a href="category.html?subcategory=${subcatParam}" style="text-decoration: none; color: inherit;">
+            <div style="cursor: pointer;">
+              <img src="${motor.imageUrl}" alt="${motor.name}">
+              <h3>${motor.name}</h3>
+            </div>
+          </a>
           <p>Price: ₹${motor.price}</p>
           <button onclick='addToCart(${JSON.stringify(motor)})'>Add to Cart</button>
         `;
@@ -31,7 +34,7 @@ function loadMotors() {
       });
     })
     .catch(error => {
-      console.error("Error loading products:", error);
+      console.error("❌ Error loading products:", error);
       productList.innerHTML = "<p>Error loading products.</p>";
     });
 }
@@ -53,8 +56,3 @@ function addToCart(product) {
 }
 
 window.onload = loadMotors;
-
-function viewProduct(product) {
-  localStorage.setItem("selectedProduct", JSON.stringify(product));
-  window.location.href = "product.html";
-}
