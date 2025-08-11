@@ -23,25 +23,23 @@ const subcategoryMap = {
   "Hardware": ["SS Stud & Nuts", "MS Stud & Nuts", "Bolt", "Washer", "Lock", "Key"]
 };
 
-// ✅ Populate subcategories when category changes
-if (categorySelect) {
-  categorySelect.addEventListener("change", () => {
-    const selectedCategory = categorySelect.value;
-    const options = subcategoryMap[selectedCategory] || [];
+// ✅ Immediate subcategory listener (from old version)
+categorySelect.addEventListener("change", () => {
+  const selectedCategory = categorySelect.value;
+  const options = subcategoryMap[selectedCategory] || [];
 
-    subcategorySelect.innerHTML = "<option value=''>-- Select Subcategory --</option>";
-    options.forEach(sub => {
-      const option = document.createElement("option");
-      option.value = sub;
-      option.textContent = sub;
-      subcategorySelect.appendChild(option);
-    });
-
-    console.log("📦 Subcategories loaded:", options);
+  subcategorySelect.innerHTML = "<option value=''>-- Select Subcategory --</option>";
+  options.forEach(sub => {
+    const option = document.createElement("option");
+    option.value = sub;
+    option.textContent = sub;
+    subcategorySelect.appendChild(option);
   });
-}
 
-// ✅ Fetch all products and display
+  console.log("📦 Subcategories loaded:", options);
+});
+
+// ✅ Fetch products
 function fetchProducts() {
   fetch(`${API_BASE}/api/products`)
     .then(res => res.json())
@@ -104,7 +102,7 @@ function addProduct(event) {
     });
 }
 
-// ✅ Delete product
+// ✅ Delete product (global)
 function deleteProduct(id) {
   fetch(`${API_BASE}/api/products/${id}`, {
     method: "DELETE"
@@ -114,8 +112,9 @@ function deleteProduct(id) {
       fetchProducts();
     });
 }
-window.deleteProduct = deleteProduct;
 
-// ✅ Initialize
+// Attach event listeners
 document.getElementById("productForm").addEventListener("submit", addProduct);
+
+// Load initial products
 fetchProducts();
