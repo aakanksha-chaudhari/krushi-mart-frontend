@@ -3,10 +3,11 @@ console.log("✅ catalog.js loaded");
 const productList = document.getElementById("product-list");
 
 function loadMotors() {
-  fetch("http://localhost:5000/api/products") // or your hosted backend API
+  fetch(`${API_BASE}/api/products`) // or your hosted backend API 
     .then(response => response.json())
     .then(motors => {
       productList.innerHTML = "";
+
 
       if (motors.length === 0) {
         productList.innerHTML = "<p>No products found.</p>";

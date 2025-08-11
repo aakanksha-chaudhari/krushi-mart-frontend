@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const productList = document.getElementById("productList");
   productList.innerHTML = "<p>Loading products...</p>";
 
-  fetch("http://localhost:5000/api/products")
+  fetch(`${API_BASE}/api/products`)
     .then((res) => res.json())
     .then((products) => {
       const filtered = products.filter(
