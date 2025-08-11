@@ -1,6 +1,6 @@
-console.log("admin.js loaded");
+console.log("admin.js loaded"); 
 
-// ✅ Define API base URL (change when deployed)
+// ✅ Fix: Define API_BASE so login & fetch calls work
 const API_BASE = window.API_BASE || "http://localhost:5000";
 
 // DOM Elements
@@ -23,7 +23,7 @@ const subcategoryMap = {
   "Hardware": ["SS Stud & Nuts", "MS Stud & Nuts", "Bolt", "Washer", "Lock", "Key"]
 };
 
-// ✅ Immediate subcategory listener (from old version)
+// Populate subcategories based on category
 categorySelect.addEventListener("change", () => {
   const selectedCategory = categorySelect.value;
   const options = subcategoryMap[selectedCategory] || [];
@@ -39,7 +39,7 @@ categorySelect.addEventListener("change", () => {
   console.log("📦 Subcategories loaded:", options);
 });
 
-// ✅ Fetch products
+// Fetch all products and display
 function fetchProducts() {
   fetch(`${API_BASE}/api/products`)
     .then(res => res.json())
@@ -65,7 +65,7 @@ function fetchProducts() {
     });
 }
 
-// ✅ Add product
+// Add product
 function addProduct(event) {
   event.preventDefault();
 
@@ -79,6 +79,9 @@ function addProduct(event) {
     subcategory: subcategorySelect.value
   };
 
+  console.log("📤 Submitting product:", product);
+
+  // Validation
   if (!product.name || !product.brand || !product.category || !product.subcategory) {
     alert("⚠️ Please fill all required fields.");
     return;
@@ -90,9 +93,14 @@ function addProduct(event) {
     body: JSON.stringify(product)
   })
     .then(res => res.json())
-    .then(() => {
+    .then(data => {
       alert("✅ Product added successfully!");
-      document.getElementById("productForm").reset();
+      nameInput.value = "";
+      brandInput.value = "";
+      priceInput.value = "";
+      descriptionInput.value = "";
+      imageInput.value = "";
+      categorySelect.value = "";
       subcategorySelect.innerHTML = "<option value=''>-- Select Subcategory --</option>";
       fetchProducts();
     })
@@ -102,7 +110,7 @@ function addProduct(event) {
     });
 }
 
-// ✅ Delete product (global)
+// Delete product
 function deleteProduct(id) {
   fetch(`${API_BASE}/api/products/${id}`, {
     method: "DELETE"
@@ -113,8 +121,6 @@ function deleteProduct(id) {
     });
 }
 
-// Attach event listeners
+// Initialize
 document.getElementById("productForm").addEventListener("submit", addProduct);
-
-// Load initial products
 fetchProducts();
