@@ -1,6 +1,6 @@
 console.log("admin.js loaded");
 
-// ✅ API base URL for local & deployed
+// ✅ Define API base URL (change when deployed)
 const API_BASE = window.API_BASE || "http://localhost:5000";
 
 // DOM Elements
@@ -41,7 +41,7 @@ if (categorySelect) {
   });
 }
 
-// ✅ Fetch all products and display them
+// ✅ Fetch all products and display
 function fetchProducts() {
   fetch(`${API_BASE}/api/products`)
     .then(res => res.json())
@@ -67,7 +67,7 @@ function fetchProducts() {
     });
 }
 
-// ✅ Add new product
+// ✅ Add product
 function addProduct(event) {
   event.preventDefault();
 
@@ -104,7 +104,7 @@ function addProduct(event) {
     });
 }
 
-// ✅ Delete a product
+// ✅ Delete product
 function deleteProduct(id) {
   fetch(`${API_BASE}/api/products/${id}`, {
     method: "DELETE"
@@ -112,16 +112,10 @@ function deleteProduct(id) {
     .then(res => res.json())
     .then(() => {
       fetchProducts();
-    })
-    .catch(err => {
-      console.error("❌ Error deleting product:", err);
     });
 }
+window.deleteProduct = deleteProduct;
 
-// ✅ Initialize form submit & load products
-const form = document.getElementById("productForm");
-if (form) {
-  form.addEventListener("submit", addProduct);
-}
-
+// ✅ Initialize
+document.getElementById("productForm").addEventListener("submit", addProduct);
 fetchProducts();
