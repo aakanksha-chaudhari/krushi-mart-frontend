@@ -53,8 +53,45 @@ function addToCart(product) {
 }
 
 function viewBySubcategory(subcategory) {
-  // Redirect to category page with subcategory in query params
-  window.location.href = `category.html?subcategory=${encodeURIComponent(subcategory)}`;
+  // Map subcategories to their folder paths
+  const categoryFolders = {
+    "Carbon Bearing": "thrust-bearing",
+    "Fiber Bearing": "thrust-bearing",
+    "Carbide": "thrust-bearing",
+    "Super Teflon": "thrust-bearing",
+    "Carbon Bush": "bush",
+    "Metal Bush": "bush",
+    "Oil Seal": "rubber-products",
+    "Neckring": "rubber-products",
+    "Grommet": "rubber-products",
+    "V4": "impeller",
+    "V6": "impeller",
+    "Old": "impeller",
+    "V4 Wooden": "wooden-stick",
+    "V6 Wooden": "wooden-stick",
+    "V8": "wooden-stick",
+    "V9": "wooden-stick",
+    "SS Stud & Nuts": "hardware",
+    "M S Stud & Nuts": "hardware",
+    "Bolt": "hardware",
+    "Washer": "hardware",
+    "Lock": "hardware",
+    "Key": "hardware"
+  };
+
+  const folder = categoryFolders[subcategory] || null;
+
+  if (!folder) {
+    alert(`No folder mapping found for subcategory: ${subcategory}`);
+    return;
+  }
+
+  const fileName = subcategory
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "-") + ".html";
+
+  window.location.href = `category/${folder}/${fileName}`;
 }
 
 window.onload = loadMotors;
