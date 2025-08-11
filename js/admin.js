@@ -1,35 +1,31 @@
-console.log("admin.js loaded");
-
-// ✅ Define API base URL (change for production if needed)
-const API_BASE = window.API_BASE || "http://localhost:5000";
-
-// DOM Elements
-const nameInput = document.getElementById("name");
-const brandInput = document.getElementById("brand");
-const priceInput = document.getElementById("price");
-const descriptionInput = document.getElementById("description");
-const imageInput = document.getElementById("imageUrl");
-const categorySelect = document.getElementById("category");
-const subcategorySelect = document.getElementById("subcategory");
-const productContainer = document.getElementById("productContainer");
-
-// Category → Subcategory Mapping
-const subcategoryMap = {
-  "Thrust Bearing": ["Carbon Bearing", "Fiber Bearing", "Super Teflon", "Carbide"],
-  "Bush": ["Carbon Bush", "Metal Bush"],
-  "Rubber Products": ["Oil Seal", "Neckring", "Grommet"],
-  "Impeller": ["V4", "V6", "Old"],
-  "Wooden Stick": ["V4", "V6", "V8", "V9"],
-  "Hardware": ["SS Stud & Nuts", "MS Stud & Nuts", "Bolt", "Washer", "Lock", "Key"]
-};
-
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("✅ admin.js loaded");
+
+  // DOM Elements
+  const nameInput = document.getElementById("name");
+  const brandInput = document.getElementById("brand");
+  const priceInput = document.getElementById("price");
+  const descriptionInput = document.getElementById("description");
+  const imageInput = document.getElementById("imageUrl");
+  const categorySelect = document.getElementById("category");
+  const subcategorySelect = document.getElementById("subcategory");
+  const productContainer = document.getElementById("productContainer");
+
+  // Category → Subcategory Mapping
+  const subcategoryMap = {
+    "Thrust Bearing": ["Carbon Bearing", "Fiber Bearing", "Super Teflon", "Carbide"],
+    "Bush": ["Carbon Bush", "Metal Bush"],
+    "Rubber Products": ["Oil Seal", "Neckring", "Grommet"],
+    "Impeller": ["V4", "V6", "Old"],
+    "Wooden Stick": ["V4", "V6", "V8", "V9"],
+    "Hardware": ["SS Stud & Nuts", "MS Stud & Nuts", "Bolt", "Washer", "Lock", "Key"]
+  };
+
   // Populate subcategories when category changes
   if (categorySelect) {
     categorySelect.addEventListener("change", () => {
       const selectedCategory = categorySelect.value;
       const options = subcategoryMap[selectedCategory] || [];
-
       subcategorySelect.innerHTML = "<option value=''>-- Select Subcategory --</option>";
       options.forEach(sub => {
         const option = document.createElement("option");
@@ -37,12 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
         option.textContent = sub;
         subcategorySelect.appendChild(option);
       });
-
       console.log("📦 Subcategories loaded:", options);
     });
   }
 
-  // Fetch products
+  // Fetch all products
   function fetchProducts() {
     fetch(`${API_BASE}/api/products`)
       .then(res => res.json())
@@ -82,6 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
       subcategory: subcategorySelect.value
     };
 
+    console.log("📤 Submitting product:", product);
+
+    // Validation
     if (!product.name || !product.brand || !product.category || !product.subcategory) {
       alert("⚠️ Please fill all required fields.");
       return;
@@ -93,9 +91,14 @@ document.addEventListener("DOMContentLoaded", () => {
       body: JSON.stringify(product)
     })
       .then(res => res.json())
-      .then(() => {
+      .then(data => {
         alert("✅ Product added successfully!");
-        document.getElementById("productForm").reset();
+        nameInput.value = "";
+        brandInput.value = "";
+        priceInput.value = "";
+        descriptionInput.value = "";
+        imageInput.value = "";
+        categorySelect.value = "";
         subcategorySelect.innerHTML = "<option value=''>-- Select Subcategory --</option>";
         fetchProducts();
       })
@@ -116,12 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   };
 
-  // Attach form submit event only if form exists
-  const form = document.getElementById("productForm");
-  if (form) {
-    form.addEventListener("submit", addProduct);
-  }
-
-  // Load initial products
+  // Initialize
+  document.getElementById("productForm").addEventListener("submit", addProduct);
   fetchProducts();
 });
