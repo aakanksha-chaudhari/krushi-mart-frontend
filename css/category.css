@@ -1,5 +1,6 @@
-/* category.css - Style for category & subcategory pages */
+/* category.css - Styles for Carbide category and common layout */
 
+/* Reset and base */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -8,10 +9,100 @@ body {
   color: #333;
 }
 
+main.category-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+main.category-container h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #075e54;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+/* Product Card */
+.product-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  text-align: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+}
+
+.product-card img {
+  max-width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #075e54;
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+  background-color: #075e54;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #054937;
+}
+
+/* Footer styling */
+footer {
+  background-color: #075e54;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 60px;
+  font-size: 0.9rem;
+}
+
+/* Navbar styling */
 header.navbar {
   background-color: #075e54;
   color: white;
-  padding: 15px 20px;
+  padding: 15px 40px; /* Increased horizontal padding for width */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,79 +119,12 @@ header.navbar {
   color: white;
   text-decoration: none;
   margin-left: 20px;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
-.navbar-links a:hover {
+.navbar-links a:hover,
+.navbar-links a.active {
   text-decoration: underline;
+  font-weight: 700;
 }
-
-main {
-  max-width: 1200px;
-  margin: auto;
-  padding: 40px 20px;
-}
-
-.category-header {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #075e54;
-  text-align: center;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px 0;
-}
-
-.product-card {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.product-card:hover {
-  transform: scale(1.02);
-}
-
-.product-card img {
-  max-width: 100%;
-  height: 150px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-
-footer {
-  background-color: #075e54;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.product-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  background: #f9f9f9;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.product-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
-

@@ -4,48 +4,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Krushi Mart | Carbide</title>
+    <title>Krushi Mart | Carbon Bush</title>
     <link rel="stylesheet" href="../../css/category.css" />
-    <script src="js/config.js"></script>
-<script src="js/admin.js"></script>
-<script src="js/main.js"></script>
+
+    <!-- Define SUBCATEGORY first -->
+    <script>
+      const SUBCATEGORY = "Carbon Bush"; // exact subcategory name matching API data
+    </script>
+
+    <script src="../../js/config.js"></script>
+    <script src="../../js/admin.js"></script>
+    <script src="../../js/main.js"></script>
   </head>
   <body>
     <!-- Navbar -->
     <header class="navbar">
       <div class="navbar-logo">
-        <a href="../../index.html">
-          <img src="../../images/krushilogo.png" alt="Krushi Mart Logo" />
-        </a>
+        <img src="../../images/krushilogo.png" alt="Krushi Mart Logo" />
       </div>
       <nav class="navbar-links">
         <a href="../../index.html">Home</a>
-        <a href="../../catalog.html">Motors</a>
-        <a href="../../cart.html">Cart 🛒</a>
-        <a href="../../orders.html">Orders</a>
-        <a href="../../auth.html">Login</a>
+        <a href="../../contact.html">Contact</a>
       </nav>
     </header>
 
     <!-- Main Content -->
     <main class="category-container">
       <h1>Carbon Bush</h1>
-
       <div id="productList" class="product-grid"></div>
-
-        <p>This section will display all products under Carbon Bush.</p>
-      </div>
     </main>
 
     <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Krushi Mart. All rights reserved.</p>
-    </footer>
+    <footer>&copy; 2025 Krushi Mart. All rights reserved.</footer>
 
-    <!--  Define SUBCATEGORY before loading JS -->
-    <script>
-      const SUBCATEGORY = "Carbon Bush"; // 👈 must match subcategory name exactly
-    </script>
+    <!-- Load categoryPage.js AFTER SUBCATEGORY is defined -->
     <script src="../../js/categoryPage.js" defer></script>
   </body>
 </html>
